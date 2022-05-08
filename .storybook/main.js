@@ -1,4 +1,5 @@
 const { mergeConfig } = require('vite')
+const path = require('path')
 
 module.exports = {
   stories: ['../components/stories/**/*.stories.mdx', '../components/stories/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -14,6 +15,12 @@ module.exports = {
           scss: {
             additionalData: '@import "../assets/styles/global.scss";',
           },
+        },
+      },
+      resolve: {
+        alias: {
+          '@': path.resolve(__dirname, '../'),
+          '~': path.resolve(__dirname, '../')
         },
       },
     })
